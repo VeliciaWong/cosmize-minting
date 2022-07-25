@@ -1,23 +1,23 @@
 const { useRef } = require("react")
 
 const borderVariant = {
-  md: 2,
-  lg: 4
+  md: 'border-2',
+  lg: 'border-4'
 }
 
 const xPaddingVariant = {
-  md: '[18px]',
-  lg: '10'
+  md: 'px-[18px]',
+  lg: 'px-10'
 }
 
 const textSizeVariant = {
-  md: '[12px]',
-  lg: '[24px]'
+  md: 'text-[12px]',
+  lg: 'text-[24px]'
 }
 
 const leadingVariant = {
-  md: '[16px]',
-  lg: '[31.2px]',
+  md: 'leading-[16px]',
+  lg: 'leading-[31.2px]',
 }
 
 const shadowVariant = {
@@ -38,7 +38,7 @@ const Button = ({ children, variant = 'md' }) => {
         background: 'linear-gradient(95.25deg, #1B3543 0%, #283A50 49.99%, #214253 50%)',
         boxShadow: shadow
       }}
-      className={`rounded-full border-${border} border-[#D2D2D280] text-white flex items-center py-[7px] px-${xPadding} text-${textSize} leading-${leading}`}
+      className={`rounded-full ${border} border-[#D2D2D280] text-white flex items-center py-[7px] ${xPadding} ${textSize} ${leading}`}
     >
       {children}
     </button>

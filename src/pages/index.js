@@ -38,7 +38,7 @@ export default function Home() {
           <Image src="/assets/images/room.png" alt='' layout='responsive' width={1140} height={700} />
           <div className='absolute w-full bottom-0 flex flex-col items-center mb-[30px]'>
             <div className='text-[64px] leading-[83.2px] font-extrabold text-center text-white'>Non tincidunt <br /> amet aliquam nisl</div>
-            <div><Button variant='lg'><BlinkIcon width={28} height={28} className="mr-[5px]" /> Connect Wallet</Button></div>
+            <div><Button variant='lg'><BlinkIcon width={28} height={28} className="mr-[10px]" /> Connect Wallet</Button></div>
           </div>
         </div>
       </div>
