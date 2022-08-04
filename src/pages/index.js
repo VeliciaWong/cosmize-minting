@@ -11,32 +11,15 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="bg-[#155D8B]">
+    <div className="bg-[#155D8B] relative">
       <Head>
         <title>Cosmize</title>
         <meta name="description" content="Cosmize description" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="h-screen w-screen block sm:hidden text-center flex flex-col justify-around p-4">
-        <div className="flex flex-col justify-around space-y-2">
-          <h2>
-            <div className="text-base tracking-widest uppercase font-black">
-              Cosmize
-            </div>
-          </h2>
-        </div>
-        <div className="flex flex-col justify-around space-y-2">
-          <h1 className="text-gray-100">
-            Please open this Cosmize link on Desktop.
-          </h1>
-          <p className="text-gray-500">
-            Cosmize only works on Desktop at the moment.
-          </p>
-        </div>
-      </div>
-      <div className="h-screen w-screen hidden sm:flex sm:flex-col">
+      <div className="h-screen w-screen flex flex-col">
         <header className="pt-4 px-4 pb-[15px] bg-[#24A3D91A]">
-          <div className="max-w-[1140px] mx-auto flex items-center justify-between">
+          <div className="max-w-[1140px] mx-auto flex items-center justify-center sm:justify-between">
             <a href="#" className="h-[25px]">
               <Image
                 src="/assets/images/cosmize-logo.png"
@@ -45,7 +28,7 @@ export default function Home() {
                 height={25}
               />
             </a>
-            <div className="flex items-center space-x-[14px]">
+            <div className="hidden sm:flex sm:items-center sm:space-x-[14px]">
               <Button>
                 <BlinkIcon className="mr-[5px]" /> Back to homepage
               </Button>
@@ -64,17 +47,47 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <div className="flex-grow px-4">
-          <div className="max-w-[1140px] mx-auto mt-[19px] mb-[20px]">
-            <div className="relative">
+        <div className="flex-grow px-4 pt-[19px] pb-[20px]">
+          <div className="max-w-[1140px] h-full mx-auto">
+            <div className="relative h-full">
               <Image
+                className="h-full rounded-[20px]"
                 src="/assets/images/room.png"
                 alt=""
-                layout="responsive"
-                width={1140}
-                height={700}
+                layout="fill"
+                objectFit="cover"
               />
-              <div className="absolute w-full bottom-0 flex flex-col items-center mb-[30px]">
+              <div className="sm:hidden">
+                <div className="fixed z-[1] left-0 top-0 bg-[#00000099] h-screen w-screen" />
+
+                <div className="absolute z-[1] w-full h-full flex flex-col justify-center text-center">
+                  <h1 className="text-[15px] text-white font-extrabold leading-[19.5px] mb-[15px]">
+                    Please open the Cosmize link on your desktop.
+                  </h1>
+                  <p className="text-[15px] text-white leading-[18.2px] px-4">
+                    At this time, Cosmize is only optimized for desktops. However, the gameplay does run on smartphones, and we hope to introduce touch controls in future updates.
+                  </p>
+                </div>
+
+                <div className="absolute z-[1] bottom-0 w-full mb-[31px]">
+                  <div className="text-[15px] text-white text-center font-extrabold leading-[19.5px] mb-[5px]">
+                    Join our community
+                  </div>
+                  <div className="flex justify-center space-x-[5px]">
+                    <a href="#">
+                      <DiscordIcon width={24} height={24} />
+                    </a>
+                    <a href="#">
+                      <TwitterIcon width={24} height={24} />
+                    </a>
+                    <a href="#">
+                      <TelegramIcon width={24} height={24} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute w-full bottom-0 hidden mb-[30px] sm:flex sm:flex-col sm:items-center">
                 <div className="text-[64px] leading-[83.2px] font-extrabold text-center text-white">
                   Non tincidunt <br /> amet aliquam nisl
                 </div>
