@@ -95,11 +95,17 @@ export default function Home() {
                   Non tincidunt <br /> amet aliquam nisl
                 </div>
                 <div>
-                  <Link href={{ pathname: "minting" }}>
-                    <Button variant="lg">
-                      <BlinkIcon width={28} height={28} className="mr-[10px]" />{" "}
-                      Connect Wallet
-                    </Button>
+                  <Link href={{ pathname: "/minting" }} passHref>
+                    <a>
+                      <Button variant="lg">
+                        <BlinkIcon
+                          width={28}
+                          height={28}
+                          className="mr-[10px]"
+                        />{" "}
+                        Connect Wallet
+                      </Button>
+                    </a>
                   </Link>
                 </div>
               </div>
