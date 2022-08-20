@@ -8,6 +8,7 @@ import {
 } from "components/icons";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -65,7 +66,9 @@ export default function Home() {
                     Please open the Cosmize link on your desktop.
                   </h1>
                   <p className="text-[15px] text-white leading-[18.2px] px-4">
-                    At this time, Cosmize is only optimized for desktops. However, the gameplay does run on smartphones, and we hope to introduce touch controls in future updates.
+                    At this time, Cosmize is only optimized for desktops.
+                    However, the gameplay does run on smartphones, and we hope
+                    to introduce touch controls in future updates.
                   </p>
                 </div>
 
@@ -92,10 +95,12 @@ export default function Home() {
                   Non tincidunt <br /> amet aliquam nisl
                 </div>
                 <div>
-                  <Button variant="lg">
-                    <BlinkIcon width={28} height={28} className="mr-[10px]" />{" "}
-                    Connect Wallet
-                  </Button>
+                  <Link href={{ pathname: "minting" }}>
+                    <Button variant="lg">
+                      <BlinkIcon width={28} height={28} className="mr-[10px]" />{" "}
+                      Connect Wallet
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
