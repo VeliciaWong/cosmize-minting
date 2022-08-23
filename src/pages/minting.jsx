@@ -2,11 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion"
+import { useWeb3React } from "@web3-react/core";
 
 export default function Minting() {
   const [isExpand, setIsExpand] = useState(false)
   const [isAmountElementHidden, setIsAmountElementHidden] = useState(false)
-
+  const { activate, connector, account } = useWeb3React();
   return (
     <div>
       <Head>
@@ -16,12 +17,15 @@ export default function Minting() {
       </Head>
       <div className="relative h-screen w-screen bg-[url('/assets/images/background-image.png')] bg-cover flex flex-col">
         <div className="flex justify-end p-4">
-          <button 
+          {/* <button 
+          
             type="button" 
             className="bg-[url('/assets/images/button-title-idle-darker.png')] bg-cover w-[360px] aspect-[300/45] text-white font-medium"
           >
-            Connect Wallet
-          </button>
+          </button> */}
+          <div>
+            {account}
+          </div>
         </div>
         <div className="flex-grow flex items-end">
           {/* adjust the `w-[700px]` if need bigger space for the content */}

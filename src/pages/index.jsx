@@ -9,8 +9,23 @@ import {
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useWeb3React } from "@web3-react/core";
+import { injected, subwallet } from "components/wallet/connectors";
+import { connectorAtom } from "components/wallet/atoms";
+import { useAtom } from "jotai";
+
+
+const connectorsByName = {
+  SubWallet: subwallet,
+  Injected: injected,
+}
 
 export default function Home() {
+
+  const { activate, connector, account } = useWeb3React();
+
+  const [activatingConnector, setActivatingConnector] = useAtom(connectorAtom);
+
   return (
     <div className="bg-[#155D8B] relative">
       <Head>
@@ -95,7 +110,50 @@ export default function Home() {
                   Non tincidunt <br /> amet aliquam nisl
                 </div>
                 <div>
-                  <Link href={{ pathname: "/minting" }} passHref>
+                  {Object.keys(connectorsByName).map(name => {
+                    const currentConnector = connectorsByName[name];
+                    const activating = currentConnector === activatingConnector;
+                    const connected = currentConnector === connector;
+
+                    return (
+                      <Link href={{ pathname: "/minting" }} passHref>
+                        <button variant="lg" key={name} onClick={async () => {
+                          setActivatingConnector(currentConnector)
+                          await window.ethereum.enable();
+                          window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [
+                              {
+                                chainId: '0x250',
+                                rpcUrls: ['https://astar.public.blastapi.io'],
+                                chainName: 'Astar',
+                                nativeCurrency: { name: 'ASTR', decimals: 18, symbol: 'ASTR' },
+                                blockExplorerUrls: ['https://blockscout.com/astar']
+                              }
+                            ]
+                          })
+                          await activate(currentConnector, (error) => {
+                            if (error) {
+                              console.log(error)
+                              setActivatingConnector(undefined)
+                            }
+                          })
+                        }}
+                        >
+                          <BlinkIcon
+                            width={28}
+                            height={28}
+                            className="mr-[10px]"
+                          />{" "}
+                          Connect Wallet
+
+                        </button>
+
+                      </Link>
+                    )
+                  })}
+                  
+                  {/* <Link href={{ pathname: "/minting" }} passHref>
                     <a>
                       <Button variant="lg">
                         <BlinkIcon
@@ -106,7 +164,7 @@ export default function Home() {
                         Connect Wallet
                       </Button>
                     </a>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
