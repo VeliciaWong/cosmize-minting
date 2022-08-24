@@ -25,7 +25,7 @@ const shadowVariant = {
   lg: '0px 20px 40px 10px rgba(0, 0, 0, 0.15)',
 }
 
-const Button = ({ children, variant = 'md' }) => {
+const Button = ({ children, variant = 'md', onClick}) => {
   const border = useRef(borderVariant[variant]).current
   const xPadding = useRef(xPaddingVariant[variant]).current
   const textSize = useRef(textSizeVariant[variant]).current
@@ -38,7 +38,8 @@ const Button = ({ children, variant = 'md' }) => {
         background: 'linear-gradient(95.25deg, #1B3543 0%, #283A50 49.99%, #214253 50%)',
         boxShadow: shadow
       }}
-      className={`rounded-full ${border} border-[#D2D2D280] text-white flex items-center py-[7px] ${xPadding} ${textSize} ${leading}`}
+      className={`rounded-full ${border} border-[#D2D2D280] text-white flex items-center py-[7px] ${xPadding} ${textSize} ${leading}`} 
+      onClick={onClick}
     >
       {children}
     </button>

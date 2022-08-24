@@ -16,7 +16,7 @@ import { useAtom } from "jotai";
 
 
 const connectorsByName = {
-  SubWallet: subwallet,
+  // SubWallet: subwallet,
   Injected: injected,
 }
 
@@ -116,8 +116,7 @@ export default function Home() {
                     const connected = currentConnector === connector;
 
                     return (
-                      <Link href={{ pathname: "/minting" }} passHref>
-                        <button variant="lg" key={name} onClick={async () => {
+                        <Button variant="lg" key={name} onClick={async () => {
                           setActivatingConnector(currentConnector)
                           await window.ethereum.enable();
                           window.ethereum.request({
@@ -147,9 +146,7 @@ export default function Home() {
                           />{" "}
                           Connect Wallet
 
-                        </button>
-
-                      </Link>
+                        </Button>
                     )
                   })}
                   
