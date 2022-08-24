@@ -139,36 +139,85 @@ export default function Minting() {
           </div>
           {isExpand && (
             <div className=" text-white p-10">
-              <div className="text-2xl pt-10 pr-20 font-medium text-left inline">Minted</div>
-              <div className="inline pl-10 space-x-10">
-                <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
-                    <Image className="scale-[1]" src="/assets/images/bracelet-1.png" layout="fill" alt="" />
-                </button>
-                <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
-                    <Image className="scale-[1]" src="/assets/images/bracelet-1.png" layout="fill" alt="" />
-                </button>
-                <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
-                    <Image className="scale-[1]" src="/assets/images/bracelet-3.png" layout="fill" alt="" />
-                </button>
-                <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
-                    <Image className="scale-[1]" src="/assets/images/bracelet-2.png" layout="fill" alt="" />
-                </button>
-                <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
-                    <Image className="scale-[1]" src="/assets/images/bracelet-1.png" layout="fill" alt="" />
-                </button>
+              <div className="flex">
+                <div className="text-2xl pt-10 pr-20 font-medium text-left flex">Minted</div>
+                {/* container of buttons */}
+                <div className="flex space-x-10">
+                  <div>
+                    {/* container each button */}
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                      <Image className="scale-[1]" src="/assets/images/bracelet-1.png" layout="fill" alt="" />
+                    </button>
+                    <div className="font-semibold"> 
+                      <div>2022/08/09 14:00:00</div>
+                      <div>Hydro # 201</div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                      <Image className="scale-[1]" src="/assets/images/bracelet-1.png" layout="fill" alt="" />
+                    </button>
+                    <div className="font-semibold"> 
+                      <div>2022/08/09 14:00:00</div>
+                      <div>Hydro # 202</div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                      <Image className="scale-[1]" src="/assets/images/bracelet-3.png" layout="fill" alt="" />
+                    </button>
+                    <div>2022/08/09 14:00:00</div>
+                    <div>Hydro # 203</div>
+                  </div>
+                  
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                      <Image className="scale-[1]" src="/assets/images/bracelet-2.png" layout="fill" alt="" />
+                    </button>
+                    <div>2022/08/09 14:00:00</div>
+                      <div>Hydro # 204</div>
+                  </div>
+                  
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                      <Image className="scale-[1]" src="/assets/images/bracelet-1.png" layout="fill" alt="" />
+                    </button>
+                    <div>2022/08/09 14:00:00</div>
+                    <div>Hydro # 205</div>
+                  </div>
+                  
+                </div>
               </div>
-              <div className="pt-20">
-                <div className="text-2xl pr-10 font-medium text-left inline">In Progress</div>
-                <div className="inline pl-10 space-x-10">
-                  <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+              
+              <div className="flex pt-10">
+                <div className="text-2xl font-medium text-left">In Progress</div>
+                <div className="flex pl-10 space-x-10">
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
                       <Image className="scale-[0.85]" src="/assets/images/bracelet-0.png" layout="fill" alt="" />
-                  </button>
-                  <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                    </button>
+                    <div>Minting Completed</div>
+                    <div className="font-bold">Click to reveal</div>
+                  </div>
+                  
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
                       <Image className="scale-[0.85]" src="/assets/images/bracelet-0.png" layout="fill" alt="" />
-                  </button>
-                  <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
+                    </button>
+                    <div>Minting in progress</div>
+                    <div className="font-bold">???</div>
+                  </div>
+                  
+                  <div>
+                    <button type="button" className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover">
                       <Image className="scale-[0.85]" src="/assets/images/bracelet-0.png" layout="fill" alt="" />
-                  </button>
+                    </button>
+                    <div>Minting in progress</div>
+                    <div className="font-bold">???</div>
+                  </div>
+                  
                 </div>
               </div>
               
