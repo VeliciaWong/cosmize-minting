@@ -46,7 +46,7 @@ export default function Minting() {
                   </svg>
                 </div>
 
-                <div className="text-white py-10 px-6 relative z-20">
+                <div className="text-white py-10 px-6 relative z-0">
                   1200 / 3000 KEYS remaining
                   <div className="text-5xl pt-5 font-bold text-left">HOW MANY KEYS</div>
                   <div className="text-5xl pt-2 pb-5 font-bold text-left">YOU WANT?</div>
@@ -137,7 +137,8 @@ export default function Minting() {
               </div>
               <button type="button" onClick={() => setShowModal(true)} className="bg-[url('/assets/images/button-title-active.png')] bg-cover w-[300px] aspect-[300/45] text-black font-medium pb-[6px] pr-[20px]">Mint</button>
               <Modal show={showModal} onClose={() => setShowModal(false)}>
-                  <div className="font-medium">Minting in Progress. Do not refresh</div>
+                  <div className="font-medium text-center text-3xl justify-center">Minting in Progress</div>
+                  <div className="font-medium text-center text-3xl justify-center">Do not refresh</div>
               </Modal>
             </div>
           </div>
