@@ -3,13 +3,14 @@ import Image from "next/image";
 import {useState } from "react";
 import { motion } from "framer-motion"
 import { useWeb3React } from "@web3-react/core";
-
+import Modal from "../components/modal.js"
 
 export default function Minting() {
   const [isExpand, setIsExpand] = useState(false)
   const [isAmountElementHidden, setIsAmountElementHidden] = useState(false)
   const [keysMinted, setKeysMinted] = useState(0);
   const { activate, connector, account } = useWeb3React();
+  const [showModal, setShowModal] = useState(false)
 
 
   const amount = (value) =>{
@@ -85,7 +86,7 @@ export default function Minting() {
                   </div>
                   
                   <p className="font-medium pt-5">Disclaimer: You can mint up to 5 during the Private Sale and</p>
-                  <div className="font-base">10 during Public Sale</div>
+                  <div className="font-medium">10 during Public Sale</div>
                 </div>
               </>
             )}
@@ -134,7 +135,10 @@ export default function Minting() {
                 <div className="text-sm">Total</div>
                 <div className="font-medium">300 ASTR</div>
               </div>
-              <button type="button" className="bg-[url('/assets/images/button-title-active.png')] bg-cover w-[300px] aspect-[300/45] text-black font-medium pb-[6px] pr-[20px]">Mint</button>
+              <button type="button" onClick={() => setShowModal(true)} className="bg-[url('/assets/images/button-title-active.png')] bg-cover w-[300px] aspect-[300/45] text-black font-medium pb-[6px] pr-[20px]">Mint</button>
+              <Modal show={showModal} onClose={() => setShowModal(false)}>
+                  <div className="font-medium">Minting in Progress. Do not refresh</div>
+              </Modal>
             </div>
           </div>
           {isExpand && (
