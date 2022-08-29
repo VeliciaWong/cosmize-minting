@@ -8,7 +8,6 @@ import {
 } from "components/icons";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useWeb3React } from "@web3-react/core";
 import { injected, subwallet } from "components/wallet/connectors";
 import { connectorAtom } from "components/wallet/atoms";
