@@ -375,34 +375,36 @@ export default function Minting() {
           </div>
           {isExpand && (
             <div className="text-white p-10">
-              <div className="flex">
-                <div className="text-2xl pt-10 pr-20 font-medium text-left flex">
-                  Minted
-                </div>
-                {/* container of buttons */}
-                <div className="flex gap-10">
-                  {tokensData?.tokens.filter((token) => !mintedTokenIds.includes(token.tokenId)).map(token => (
-                    <div key={token.id}>
-                      {/* container each button */}
-                      <button
-                        type="button"
-                        className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover"
-                      >
-                        <Image
-                          className="scale-[1]"
-                          src="/assets/images/bracelet-1.png"
-                          layout="fill"
-                          alt=""
-                        />
-                      </button>
-                      <div className="font-semibold">
-                        {/* <div>2022/08/09 14:00:00</div> */}
-                        <div>{token.id}</div>
+              {!!tokensData?.tokens && (
+                <div className="flex">
+                  <div className="text-2xl pt-10 pr-20 font-medium text-left flex">
+                    Minted
+                  </div>
+                  {/* container of buttons */}
+                  <div className="flex gap-10">
+                    {tokensData?.tokens.filter((token) => !mintedTokenIds.includes(token.tokenId)).map(token => (
+                      <div key={token.id}>
+                        {/* container each button */}
+                        <button
+                          type="button"
+                          className="relative bg-[url('/assets/images/button-menu-active-ver2.png')] w-[145px] h-[145px] bg-cover"
+                        >
+                          <Image
+                            className="scale-[1]"
+                            src="/assets/images/bracelet-1.png"
+                            layout="fill"
+                            alt=""
+                          />
+                        </button>
+                        <div className="font-semibold">
+                          {/* <div>2022/08/09 14:00:00</div> */}
+                          <div>{token.id}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {!!(mintedTokenIds.length || amountOnMinting) && (
                 <div className="flex pt-10">
