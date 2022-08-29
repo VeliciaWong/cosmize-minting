@@ -227,6 +227,7 @@ export default function Minting() {
           >
             Connect Wallet
           </button> */}
+          {account}
         </div>
         <div className="flex-grow flex items-end">
           {/* adjust the `w-[700px]` if need bigger space for the content */}
