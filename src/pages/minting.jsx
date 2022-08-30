@@ -258,13 +258,22 @@ export default function Minting() {
       </Head>
       <div className="relative h-screen w-screen bg-[url('/assets/images/background-image.png')] bg-cover flex flex-col">
         <div className="flex justify-end p-4">
-          <button 
-            type="button" 
-            className="bg-[url('/assets/images/button-title-idle-darker.png')] bg-cover w-[360px] aspect-[300/45] text-white font-medium"
-          >
-            {account?.substr(0,25) + "..."}
-          </button>
-          
+          {!account ? 
+              <button
+                type="button"
+                onClick={handleConnectWallet}
+                className="bg-[url('/assets/images/button-title-active.png')] bg-cover w-[300px] aspect-[300/45] text-black font-medium pb-[6px] pr-[20px]"
+              >
+                Connect Wallet
+              </button>
+                
+              : <button 
+                  type="button" 
+                  className="bg-[url('/assets/images/button-title-idle-darker.png')] bg-cover w-[360px] aspect-[300/45] text-white font-medium"
+                >
+                  {account?.substr(0,25) + "..."}
+                </button>
+          }
         </div>
         <div className="flex-grow flex items-end">
           {/* adjust the `w-[700px]` if need bigger space for the content */}
@@ -394,23 +403,13 @@ export default function Minting() {
                   ASTR
                 </div>
               </div>
-              {!account ? 
-                <button
-                  type="button"
-                  onClick={handleConnectWallet}
-                  className="bg-[url('/assets/images/button-title-active.png')] bg-cover w-[300px] aspect-[300/45] text-black font-medium pb-[6px] pr-[20px]"
-                >
-                Connect Wallet
-                </button>
-                
-                : 
                 <button
                   type="button"
                   onClick={handleMint}
                   className="bg-[url('/assets/images/button-title-active.png')] bg-cover w-[300px] aspect-[300/45] text-black font-medium pb-[6px] pr-[20px]"
                 >
                 Mint
-                </button>}
+                </button>
 
               <Modal show={showModal} onClose={() => setShowModal(false)}>
                 <div className="font-medium text-center text-3xl justify-center">
