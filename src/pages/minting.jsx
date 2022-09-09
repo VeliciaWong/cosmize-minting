@@ -149,6 +149,17 @@ export default function Minting() {
         setAmountOnMinting((old) => old + keysMinted);
 
         const receipt = await tx.wait();
+
+        setShowModal(true);
+        <Modal show={showModal}>
+                <div className="font-medium text-center text-3xl justify-center">
+                  Minting in progress
+                </div>
+                <div className="font-medium text-center text-3xl justify-center">
+                  Do not refresh page
+                </div>
+        </Modal>
+
         const tokenIds = receipt.events
           .filter(({ event }) => event === "MintEvent")
           .reduce((a, c) => {
@@ -162,10 +173,18 @@ export default function Minting() {
 
         setMintedTokenIds((old) => [...old, ...tokenIds]);
         setAmountOnMinting((old) => old - keysMinted);
+        setShowModal(false)
       });
     } catch (e) {
       console.error(e);
     }
+
+    setShowModal(true);
+    <Modal show={showModal} onClose={() => setShowModal(false)}>
+                <div className="font-medium text-center text-3xl justify-center">
+                  Minting Success!
+                </div>
+      </Modal>
   };
 
   const handlePublicMint = () => {
@@ -410,15 +429,6 @@ export default function Minting() {
                 >
                 Mint
                 </button>
-
-              <Modal show={showModal} onClose={() => setShowModal(false)}>
-                <div className="font-medium text-center text-3xl justify-center">
-                  Minting in Progress
-                </div>
-                <div className="font-medium text-center text-3xl justify-center">
-                  Do not refresh
-                </div>
-              </Modal>
             </div>
           </div>
           {isExpand && (
@@ -430,8 +440,8 @@ export default function Minting() {
                   </div>
                   {/* container of buttons */}
                   <div className="flex gap-10">
-                    {tokensData?.tokens.filter((token) => !mintedTokenIds.includes(token.tokenId)).map(token => (
-                      <div key={token.id}>
+                    {tokensData?.tokens.filter((token) => !mintedTokenIds.includes(token?.tokenId)).map(token => (
+                      <div key={token?.id}>
                         {/* container each button */}
                         <button
                           type="button"
@@ -446,7 +456,7 @@ export default function Minting() {
                         </button>
                         <div className="font-semibold">
                           {/* <div>2022/08/09 14:00:00</div> */}
-                          <div>{token.id}</div>
+                          <div>{token?.id}</div>
                         </div>
                       </div>
                     ))}

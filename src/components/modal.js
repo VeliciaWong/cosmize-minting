@@ -9,18 +9,10 @@ export default function Modal({show, onClose, children}){
     setIsBrowser(true);
   }, []);
 
-  const handleClose =  (e) =>{
-    e.preventDefault();
-    onClose();
-  };
-
   const modalContent = show ? (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <div className={styles.header}>
-          <a href='#' onClick={handleClose}>
-            <button className='btn'>X</button>
-          </a>
         </div>
         <div className={styles.body}>{children}</div>
       </div>

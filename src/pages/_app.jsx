@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 const apolloClient = new ApolloClient({
-  uri: "https://squid.subsquid.io/firesquid-cosmize/v/2/graphql",
+  uri: "https://squid.subsquid.io/firesquid-cosmize/v/3/graphql",
   cache: new InMemoryCache(),
 });
 

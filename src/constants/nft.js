@@ -29,5 +29,6 @@ export const whitelistedAddresses = [
   "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc",
   "0xe9c826684eacb5c072d1b3c64cb27c6ba0b626ce",
   "0x642307c5e87b6701c47586f6101ce7f235f1f1cb",
-  "0x52fe49a67e1e840bc5b6ab0fc0b6e313cd9a8748"
+  "0x52fe49a67e1e840bc5b6ab0fc0b6e313cd9a8748",
+  "0x9209a04a5bebdc068D0632EC828Ed597364ce3E6"
 ];
